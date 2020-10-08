@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="PasswordApp">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Use our online Strong Password Generator to create a secure and safe passwords instantly free that is secure and difficult to crack or guess.">
+    <meta name="author" content="Foxflue">
+	<title>Web Site Title</title>
+	<!--SEO start-->
+	<link rel="canonical" href="SITE URL" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="TITLE" />
+	<meta property="og:description" content="Use our online Strong Password Generator to create a secure and safe passwords instantly free that is secure and difficult to crack or guess." />
+	<meta property="og:url" content="SITE URL" />
+	<meta property="og:site_name" content="TITLE" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:description" content="SITE DESCRIPTION" />
+	<meta name="twitter:title" content="TITLE" />
+	<!-- SEO Option End-->
+	<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css'>
+	<link rel="icon" href="http://passwordgenerators.website/img/favicon.png" sizes="16x16" />
+	<link rel="icon" href="http://passwordgenerators.website/img/favicon.png" sizes="192x192" />
+	<link rel="apple-touch-icon-precomposed" href="http://passwordgenerators.website/img/favicon.png" />
+	<!-- ./CSS -->
+	<script src="js/clipboard.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+      <!-- Ending -->
+</head>
+<body>
+<div class="jumbotron">
+	<h2 class="text-center">เว็บไซต์สร้างรหัสผ่าน</h2>
+</div>
+<div class="container">
+	<div class="ad-head">
+	<!-- Header Ad -->
+	
+	<!-- Header Ad End -->
+	</div>
+</div>
+<div class="container" data-ng-controller="PasswordAppController">
+<div class="row">
+	<div class="col-md-9">
+		<div class="widgets box">
+			<div class="box-head w-bh"><h3 class="text-center">เครื่องมือสร้างรหัสผ่าน</h3></div>
+				<form class="widgets-form" role="form">
+				<div class="row">
+				<div class="col-md-4"><label><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+ ความยาวรหัสผ่าน:</label></div>
+				<div class="col-md-8">     
+                            <input type="range" class="range" min="6" max="50" step="1" value="12" data-ng-model="passwordLength"><span class="range-slider__value">{{passwordLength}}</span> 
+                        </div>
+				</div>
+				<div class="row">
+				<div class="col-md-4"><label><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+ รวมสัญลักษณ์:</label></div>
+				<div class="col-md-8">
+				<label class="checkbox-inline"><input type="checkbox" data-ng-model="addSymbols"> (e.g. @#$%)</label>
+				</div>
+				</div>
+				<div class="row">
+				<div class="col-md-4"><label><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+ รวมถึงตัวเลข:</label></div>
+				<div class="col-md-8">
+					<label class="checkbox-inline"><input type="checkbox" data-ng-model="addNumbers"> (e.g. 123456)</label>
+				</div>
+				</div>
+				<div class="row">
+				<div class="col-md-6"><label><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+ รวมอักขระตัวพิมพ์ใหญ่:</label></div>
+				<div class="col-md-6">
+					<label class="checkbox-inline"><input type="checkbox" data-ng-model="addUpper"> (e.g. ABCDEF)</label>
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<button type="button" class="btn btn-primary btn-lg w-btn" name="submit" id="load" data-loading-text="Generating <i class='fa fa-spinner fa-spin '></i>" data-ng-click="createPassword()"><i class="fa fa-bolt" aria-hidden="true"></i> สร้าง</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 result-label">ผลลัพธ์:</div>
+					<div class="col-md-7">
+						<div data-ng-model="password" id="password">
+                         <input type="text" class="form-control" data-ng-model="password" id="password1" placeholder="รหัสผ่านที่คาดเดายากใหม่จะปรากฏขึ้นที่นี่">	
+                       </div>
+					</div>
+					<div class="com-md-1 copy"><button type="button" class="btn btn-primary" data-clipboard-action="copy" data-clipboard-target="#password1"><i class="fa fa-clone" aria-hidden="true"></i><span> คัดลอกรหัสผ่าน</span></button></div>
+				</div>
+				</form>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="sidebar box">
+			<div class="box-head s-bh"><h3 class="text-center" >โฆษณา</h3></div>
+			<div class="ad-slot">
+				<!--Sidebar AD-->
+				<!--Sidebar End-->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Coontent Area-->
+<div class="row">
+	<div class="col-md-12">
+		<div class="description box">
+			<div class="box-head d-bh"><h3 class="text-center">เกี่ยวกับเครื่องมือสร้างรหัสผ่าน</h3></div>
+			<div class="d-content">
+		<p>Password Generator เป็นโปรแกรมสร้างรหัสผ่านอินเทอร์เน็ตที่สมบูรณ์ฟรี เป็นไปได้ที่จะปรับแต่งรหัสผ่านที่คุณต้องการเพิ่มสัญลักษณ์ตัวเลขนอกเหนือจากตัวอักษรตัวพิมพ์ใหญ่และตัวพิมพ์เล็ก เห็นได้ชัดว่ายิ่งคุณเลือกตัวเลือกมากเท่าไรรหัสผ่านก็จะยิ่งได้รับการป้องกันมากขึ้นเท่านั้น ตัวเลือกในการยกเว้นคุณสมบัติที่คล้ายกันช่วยให้คุณสามารถหลีกเลี่ยงตัวอักษรและตัวอักษรที่มีลักษณะเหมือนกันเช่นศูนย์และตัวอักษร 'O' ในรหัสผ่านของคุณ</p>
+		<p>นอกจากนี้คุณสามารถกำหนดระยะเวลาที่ต้องใช้รหัสผ่านและจำนวนรหัสผ่านที่คุณต้องการสร้างพร้อมกัน</p>
+		<p>ทันทีที่คุณเลือกรูปแบบตัวเลขที่คุณต้องการในรหัสผ่านเพียงคลิก 'สร้างรหัสผ่าน'</p>
+		<p>สร้างรหัสผ่านที่ปลอดภัยอย่างสมบูรณ์ รหัสผ่านที่มีความปลอดภัยสูงที่คุณสร้างขึ้นจะไม่ถูกจัดเก็บไว้ใน passwordgenerators.website หรือที่อื่นใด ไม่มีข้อมูลส่วนบุคคลของคุณจะถูกสะสมโดยใช้ตัวสร้างนี้</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="description box">
+			<div class="box-head d-bh"><h3 class="text-center">คำแนะนำในการปกป้องรหัสผ่านของคุณ</h3></div>
+			<div class="d-content">
+			<ol>
+<li>รหัสผ่านอะไรก็ตามที่น้อยกว่า 8 ตัวอักษรนั้นไม่ดีและอาจถอดรหัสได้ง่าย</li>
+<li>อย่าใช้หมายเลขโทรศัพท์หรือที่อยู่ของคุณเป็นรหัสผ่าน</li>
+<li>อย่าใช้คำในพจนานุกรมเป็นรหัสผ่านของคุณ</li>
+<li>ออกจากระบบบัญชีของคุณทุกครั้งเมื่อสิ้นสุดการประชุมโดยเฉพาะอย่างยิ่งหากคุณใช้คอมพิวเตอร์สาธารณะหรือคอมพิวเตอร์สาธารณะ เพียงแค่ปิดเบราว์เซอร์ที่คุณใช้ไม่เพียงพอ</li>
+<li>เปลี่ยนรหัสผ่านของคุณสำหรับบัญชีที่คุณอาจไม่ถือว่ามีค่า</li>
+<li>ปรับปรุงเบราว์เซอร์ของคุณให้ทันสมัยอยู่เสมอ</li>
+<li>ล็อคสมาร์ทโฟนและโน้ตบุ๊กของคุณทุกครั้งที่คุณไม่ได้ใช้งานไม่ว่าคุณจะอยู่ที่บ้านที่ทำงานวิทยาลัยหรือที่ใดก็ตาม</li>
+</ol>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="description box">
+			<div class="box-head d-bh"><h3 class="text-center">คำถามที่พบบ่อย</h3></div>
+			<div class="d-content">
+			<h2><br />ฉันจะใช้รหัสผ่านที่ฉันผลิตด้วยเครื่องสร้างรหัสผ่านที่ไหน</h2>
+<p>คุณสามารถใช้รหัสผ่านที่คุณสร้างในเว็บไซต์โปรแกรมหรือระบบปฏิบัติการที่คุณต้องการ</p>
+<h2>การใช้รหัสผ่านที่มีประสิทธิภาพเพียงพอที่จะปกป้องความเป็นส่วนตัวของฉันได้หรือไม่</h2>
+<p>การใช้รหัสผ่านที่รัดกุมซึ่งมีสัญลักษณ์ตัวเลขนอกเหนือจากตัวอักษรตัวพิมพ์ใหญ่และตัวพิมพ์เล็กทำให้แฮกเกอร์สามารถขโมยบัญชีของคุณได้อย่างไม่น่าเชื่อ แต่มีบางกรณีที่ความเป็นส่วนตัวทางอินเทอร์เน็ตของคุณอาจมีความเสี่ยงสูงถึงแม้ว่าคุณจะใช้รหัสผ่านที่ท้าทาย หากคุณใช้ฮอตสปอต WiFi สาธารณะในวิทยาลัยรีสอร์ทสนามบินหรืออินเทอร์เน็ตเอนเตอร์เทนเมนต์เป็นจำนวนมากคุณสามารถเชื่อมต่อกับเครือข่ายส่วนตัวเสมือนหรือ VPN เพื่อนำความเป็นส่วนตัวและความปลอดภัยมาสู่อินเทอร์เน็ตของคุณได้</p>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--Content Area End-->
+</div>
+<footer><p class="pull-left">ลิขสิทธิ์© 2020สงวนลิขสิทธิ์</p> <p class="pull-right">พัฒนาโดย <a href="http://shopth.ueuo.com/" rel="nofollow" class="foot-link">ชุมชนคนทำเว็บ</a> - <strong>เราจะไม่เก็บรหัสผ่านใด ๆ</strong></p></footer>
+ <!-- Js -->
+  <script src="js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ <!-- ./Js -->
+<script>
+        $(document).ready(function(){
+          $("#load").on('click', function(){
+          	 var $this = $(this);
+			  $this.button('loading');
+			    setTimeout(function() {
+			       $this.button('reset');
+			   }, 500);
+          });
+        });
+      var clipboard = new Clipboard('.btn');
+    clipboard.on('success', function(e) {
+        console.log(e);
+    });
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+        <script src="js/ui-bootstrap-tpls-0.11.0.min.js"></script>
+        <script src="js/application.js"></script>
+</body>
+</html>
